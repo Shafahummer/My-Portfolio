@@ -13,13 +13,20 @@ import Toolbar from '@material-ui/core/Toolbar';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Typewriter from 'typewriter-effect';
-import './Home.css';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
 import DescriptionOutlinedIcon from '@material-ui/icons/DescriptionOutlined';
 import ComputerOutlinedIcon from '@material-ui/icons/ComputerOutlined';
 import PhoneOutlinedIcon from '@material-ui/icons/PhoneOutlined';
 import { useHistory } from 'react-router-dom';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import { Grid } from '@material-ui/core'
 
 const drawerWidth = 200;
 
@@ -57,16 +64,14 @@ const useStyles = makeStyles((theme) => ({
     content: {
         flexGrow: 1,
         padding: theme.spacing(3),
-        overflow: "hidden",
-        backgroundImage: "url(https://images.pexels.com/photos/675251/pexels-photo-675251.jpeg)",
+        // overflow: "hidden",
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         height: window.innerHeight,
-        alignItems: "center",
-        justifyContent: "center",
         display: "flex",
-        flexDirection: "column"
+        flexDirection: "column",
+        // backgroundColor: "#242B2E"
     },
     topbarContainer: {
         justifyContent: "space-between",
@@ -76,12 +81,18 @@ const useStyles = makeStyles((theme) => ({
         marginLeft: -15
     },
 
-
+    root1: {
+        // maxWidth: "30%",
+        margin: 10
+    },
+    media1: {
+        height: 180,
+    },
 }));
 
 
 
-function Home(props) {
+function Projects(props) {
     const { window } = props;
     const classes = useStyles();
     const theme = useTheme();
@@ -95,6 +106,7 @@ function Home(props) {
 
     //is large screen or mobile screen 
     const matches = useMediaQuery('(min-width:600px)');
+    const matches2 = useMediaQuery('(min-width:900px)');
 
     const drawer = (
         <div>
@@ -190,20 +202,108 @@ function Home(props) {
                 </Hidden>
             </nav>
             <main className={classes.content}>
-                <div className={classes.toolbar} />
-                <div style={{ backgroundClip: "red" }}><h1 style={{ color: "#3498DB", fontSize: 52, textAlign: "center" }}>SHAFAH UMMER</h1></div>
-                <Typewriter
-                    options={{
-                        strings: ['I am a Full Stack Developer', 'I am a React Native Developer', 'I am a React Developer', 'I am a Flutter Developer'],
-                        autoStart: true,
-                        loop: true,
-                        wrapperClassName: "my-txt",
-                    }}
-                />
+                <Grid
+                    container
+                    direction="row"
+                    justify="center"
+                    alignItems="center"
+                    style={{ marginTop: !matches ? 55 : 0 }}
+                >
+                    <Card style={{
+                        maxWidth: !matches2 ? "90%" : "30%",
+                        margin: 10
+                    }}>
+                        <CardActionArea>
+                            <CardMedia
+                                className={classes.media1}
+                                image="https://images.pexels.com/photos/4134787/pexels-photo-4134787.jpeg"
+                                title="Contemplative Reptile"
+                            />
+                            <CardContent>
+                                <Typography gutterBottom variant="h5" component="h2">
+                                    Lizard
+                            </Typography>
+                                <Typography variant="body2" color="textSecondary" component="p">
+                                    Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+                                    across all continents except Antarctica
+                            </Typography>
+                            </CardContent>
+                        </CardActionArea>
+
+                    </Card>
+
+                    <Card style={{
+                        maxWidth: !matches2 ? "90%" : "30%",
+                        margin: 10
+                    }}>
+                        <CardActionArea>
+                            <CardMedia
+                                className={classes.media1}
+                                image="https://images.pexels.com/photos/4134787/pexels-photo-4134787.jpeg"
+                                title="Contemplative Reptile"
+                            />
+                            <CardContent>
+                                <Typography gutterBottom variant="h5" component="h2">
+                                    Lizard
+                            </Typography>
+                                <Typography variant="body2" color="textSecondary" component="p">
+                                    Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+                                    across all continents except Antarctica
+                            </Typography>
+                            </CardContent>
+                        </CardActionArea>
+
+                    </Card>
+
+                    <Card style={{
+                        maxWidth: !matches2 ? "90%" : "30%",
+                        margin: 10
+                    }}>
+                        <CardActionArea>
+                            <CardMedia
+                                className={classes.media1}
+                                image="https://images.pexels.com/photos/4134787/pexels-photo-4134787.jpeg"
+                                title="Contemplative Reptile"
+                            />
+                            <CardContent>
+                                <Typography gutterBottom variant="h5" component="h2">
+                                    Lizard
+                            </Typography>
+                                <Typography variant="body2" color="textSecondary" component="p">
+                                    Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+                                    across all continents except Antarctica
+                            </Typography>
+                            </CardContent>
+                        </CardActionArea>
+
+                    </Card>
+                    <Card style={{
+                        maxWidth: !matches2 ? "90%" : "30%",
+                        margin: 10
+                    }}>
+                        <CardActionArea>
+                            <CardMedia
+                                className={classes.media1}
+                                image="https://images.pexels.com/photos/4134787/pexels-photo-4134787.jpeg"
+                                title="Contemplative Reptile"
+                            />
+                            <CardContent>
+                                <Typography gutterBottom variant="h5" component="h2">
+                                    Lizard
+                            </Typography>
+                                <Typography variant="body2" color="textSecondary" component="p">
+                                    Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+                                    across all continents except Antarctica
+                            </Typography>
+                            </CardContent>
+                        </CardActionArea>
+                    </Card>
+
+
+                </Grid>
             </main>
-            {/* <HomeContent /> */}
         </div>
     );
 }
 
-export default Home;
+export default Projects;
