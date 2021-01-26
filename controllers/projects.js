@@ -1,5 +1,6 @@
 const Projects = require('../models/projects')
 const multer = require('multer')
+const { v4: uuidv4 } = require('uuid');
 
 exports.getProjects = (req, res) => {
     Projects.find().exec((err, project) => {
@@ -21,7 +22,7 @@ var storage = multer.diskStorage({
         }
     },
     filename: function (req, file, cb) {
-        cb(null, file.originalname)
+        cb(null, uuidv4() + file.originalname)
     }
 })
 
@@ -41,8 +42,8 @@ exports.addProjects = (req, res) => {
             const project = new Projects({
                 title: title,
                 description: description,
-                image: req.files.image[0].path,
-                video: req.files.video[0].path,
+                image: "assets/" + req.files.image[0].path,
+                video: "assets/" + req.files.video[0].path,
             });
 
             project.save((err, result) => {
