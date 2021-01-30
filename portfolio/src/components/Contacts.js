@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import { makeStyles } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -87,6 +87,13 @@ function Contacts() {
         setOpen(false);
     };
 
+    useEffect(() => {
+        console.log("Screen focused");
+        // window.addEventListener('focus', (event) => {
+        //     console.log("Screen focused");
+        // });
+    }, []);
+
 
     //is large screen or mobile screen 
     const matches = useMediaQuery('(min-width:600px)');
@@ -149,10 +156,10 @@ function Contacts() {
                 <div style={{ marginTop: 50 }}>
                     <h3 style={{ color: "#FFFFFF", fontWeight: "bold" }}>Send Mail</h3>
                     <div style={{ display: "flex", alignItems: "center" }}>
-                        <TextField onChange={(text) => { setEmail(text.target.value) }} style={{ marginRight: 20 }} className={classes.inputBorder} inputProps={{ className: classes.input }} id="outlined-basic" label="Email" variant="outlined" />
-                        <TextField onChange={(text) => { setSubject(text.target.value) }} className={classes.inputBorder} inputProps={{ className: classes.input }} id="outlined-basic" label="Subject" variant="outlined" />
+                        <TextField onChange={(text) => { setEmail(text.target.value) }} style={{ marginRight: 20 }} className={classes.inputBorder} inputProps={{ className: classes.input }} id="outlined-basic1" label="Email" variant="outlined" />
+                        <TextField onChange={(text) => { setSubject(text.target.value) }} className={classes.inputBorder} inputProps={{ className: classes.input }} id="outlined-basic2" label="Subject" variant="outlined" />
                     </div>
-                    <TextField multiline onChange={(text) => { setMessage(text.target.value) }} className={classes.inputBorder} inputProps={{ className: classes.inputMail }} id="outlined-basic" label="Message" variant="outlined" />
+                    <TextField multiline onChange={(text) => { setMessage(text.target.value) }} className={classes.inputBorder} inputProps={{ className: classes.inputMail }} id="outlined-basic3" label="Message" variant="outlined" />
                 </div>
                 <Button variant="contained" color="secondary" onClick={() => {
                     if (email.trim() === "" || subject.trim === "" || message.trim() === "") {
